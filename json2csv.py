@@ -54,6 +54,25 @@ def detect_fields(data):
     return fields
 
 
+def check_type(item):
+    """Check type of item and return
+    string representation,
+
+    :param item: Item
+    :returns: Str
+    """
+    if isinstance(item, bool):
+        return str(int(item))
+
+    if isinstance(item, int):
+        return str(item)
+
+    if item is None:
+        return ""
+
+    return item
+
+
 def parse_data(data, fields):
     """Yields items in CSV format.
 
@@ -63,11 +82,14 @@ def parse_data(data, fields):
 
     for item in data:
         row = "%s," % item['pk']
-        row += ",".join([item['fields'][field_name] for field_name in fields])
+        values = [item['fields'][field_name] for field_name in fields]
+        values = map(check_type, values)
+        row += ",".join(values)
         yield row
 
 if __name__ == '__main__':
     data = json.load(args.input_file)
+    data.sort(key=lambda item: item['pk'])
     fields = detect_fields(data)
     fields_plus = ['id']
     fields_plus.extend(fields)
