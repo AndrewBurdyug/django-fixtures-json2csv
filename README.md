@@ -19,7 +19,7 @@ Primary keys for Django models('pk') are saved in column with name 'id'.
 **Usage**
 
 <pre>
-$ python3 tools/json2csv.py -h 
+$ python3 json2csv.py -h 
 usage: json2csv.py [-h] -i FILE -o FILE [-lf FILE] [-lv LOG LEVEL]
                    [-ex EXCLUDE FIELDS]
 
@@ -28,16 +28,15 @@ Convert django fixtures(JSON) to CSV
 optional arguments:
   -h, --help            show this help message and exit
   -i FILE, --input-file FILE
-                        Logfile path
+                        Input file path
   -o FILE, --output-file FILE
-                        Log level, default: INFO
+                        Output file path
   -lf FILE, --log-file FILE
-                        Logfile path
+                        Log file path
   -lv LOG LEVEL, --log-level LOG LEVEL
                         Log level, default: INFO
   -ex EXCLUDE FIELDS, --exclude-fields EXCLUDE FIELDS
                         Log level, format: "title,name,doc"
-                        
 </pre>
 
 **Examples**

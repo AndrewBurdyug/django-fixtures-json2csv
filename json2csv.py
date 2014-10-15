@@ -5,12 +5,12 @@ import logging as log
 parser = argparse.ArgumentParser(description='Convert django fixtures(JSON) ' +
                                  ' to CSV')
 parser.add_argument('-i', '--input-file', type=open, required=True,
-                    metavar='FILE', help='Logfile path')
+                    metavar='FILE', help='Input file path')
 parser.add_argument('-o', '--output-file', type=argparse.FileType('w'),
-                    metavar='LOG LEVEL', default='INFO', required=True,
-                    help='Log level, default: INFO')
+                    metavar='FILE', required=True,
+                    help='Output file path')
 parser.add_argument('-lf', '--log-file', type=argparse.FileType('w'),
-                    metavar='FILE', help='Logfile path')
+                    metavar='FILE', help='Log file path')
 parser.add_argument('-lv', '--log-level', type=str, metavar='LOG LEVEL',
                     default='INFO', help='Log level, default: INFO')
 parser.add_argument('-ex', '--exclude-fields', type=str,
